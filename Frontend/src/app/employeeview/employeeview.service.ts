@@ -4,25 +4,25 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
 @Injectable()
-export class EmployerService{
+export class EmployeeService{
 
-    employers!: any[];
+    employees!: any[];
 
     constructor(private http: HttpClient){}
     
 
-    getEmployerRecord(recordID:number){
-      return this.employers.find(employers => employers.recordID == recordID);
+    getEmployeeRecord(recordID:number){
+      return this.employees.find(employees => employees.recordID == recordID);
     }
 
-    getEmployersAPI(){
+    getEmployeesAPI(){
       const headers = {
         'Access-Control-Allow-Origin': '*'
       };
 
       this.http.get<any>('https://mocki.io/v1/ea7f92f3-46df-4011-9523-0b73e094009a', {headers}).subscribe({
         next: data => {
-          this.employers = data;
+          this.employees = data;
         },
         error: error => {
           console.error("Error here: ", error);

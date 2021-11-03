@@ -8,10 +8,6 @@ export class ErrorsService{
 
   constructor(private http: HttpClient){}
     
-  getErrors(){
-    return this.errors;
-  }
-    
   getError(errorNumber:number){
     return this.errors.find(errors => errors.errorNumber == errorNumber);
   }
@@ -20,15 +16,11 @@ export class ErrorsService{
     const headers = {
       'Access-Control-Allow-Origin': '*'
     };
-
-    this.http.get<any>('http://epayroll-data-eda-epayroll-poc.apps.ocp4.omega.dce-eir.net/errors', {headers}).subscribe({
-      next: data => {
-        this.errors = data;
-      },
-      error: error => {
-        console.error("Error here: ", error);
-      }
-    })
+    this.http.get<any>('http://epayroll-data-eda-epayroll-poc.apps.ocp4.omega.dce-eir.net/errors', {headers}).subscribe(data => {
+      this.errors = data;
+    });
+    return this.http.get<any>('http://epayroll-data-eda-epayroll-poc.apps.ocp4.omega.dce-eir.net/errors', {headers});
+    
   }
   
 }

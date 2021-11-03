@@ -1,0 +1,36 @@
+<div class="container">
+    <h3>Pay Details</h3>
+    
+    <div class="row">
+        <h4>SIN: {{employee?.employeeSin}}</h4>
+        <h4>Employee Name: {{ employee?.employeeName }}</h4>
+        <h5>Employee ID: {{ employee?.employeeID}}</h5>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-6">
+            <div>Period Start: {{employee?.periodStart}}</div>
+            <div>Period Start: {{employee?.periodEnd}}</div>
+        </div>
+        <div class="col-md-6">
+            <div>Pay Type: {{employee?.payType}}</div>
+            <div>Activity: {{ employee?.employeeActivity}}</div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-6">
+            <div>Gross Pay: {{employee?.grossPay}}</div>
+            <div>Tax Deducted: {{employee?.taxDeducted}}</div>
+        </div>
+        <div class="col-md-6">
+            <div>CPP Pensionable Earnings: {{employee?.cppPensionEarning}}</div>
+            <div>CPP Contribution: {{ employee?.cppContribution}} </div>
+            <div>EI Insurable Earnings: {{ employee?.eiInsurableEarning}}</div>
+            <div>EI Contribution: {{employee?.eiContribution }}</div>
+        </div>
+    </div>
+</div>

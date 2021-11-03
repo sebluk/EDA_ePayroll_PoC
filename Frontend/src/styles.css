@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    background: #b3d7ff;
+    background-color: #e7e7e7;
     width: 100%;
 }
 
@@ -12,9 +12,3 @@ body{
 .container {
 padding-top: 10px;
 }
-
-.pointable {
-cursor: pointer;
-}
-
-  

@@ -1,9 +1,11 @@
 <div class="fixed-header">
-    <h1 class="pointable" [routerLink]="'/'">Event Driven Architecture: ePayroll PoC</h1>
+    <h1 class="title">Event Driven Architecture: ePayroll PoC</h1>
     <nav class="navbar navbar-expand-sm justify-content-center">
-        <button type="button" class="btn btn-primary" [routerLink]="'/employeeview'">Employee</button>
-        <button type="button" class="btn btn-secondary" [routerLink]="'/employerview'">Employer</button>
-        <button type="button" class="btn btn-warning" [routerLink]="'/errorview'">Error</button>
+        <div class="card-container">
+            <button type="button" class="card" [routerLink]="'/employeeview'">Employee</button>
+            <button type="button" class="card" [routerLink]="'/employerview'">Employer</button>
+            <button type="button" class="card" [routerLink]="'/errorview'">Error</button>
+        </div>
     </nav>
 </div>
 

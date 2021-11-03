@@ -11,6 +11,9 @@ import { EmployerviewComponent } from './employerview/employerview.component';
 import { EmployerDetailedViewComponent } from './employerview/employerdetailedview.component';
 import { EmployerService } from './employerview/employerview.service';
 import { HttpClientModule } from "@angular/common/http";
+import { ErrorsResolver } from './errorview/errorview-resolver.service';
+import { EmployerResolver } from './employerview/employerview-resolver.service';
+import { EmployeeResolver } from './employeeview/employeeview-resolver.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,7 @@ import { HttpClientModule } from "@angular/common/http";
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ErrorsService, EmployerService],
+  providers: [ErrorsService, EmployerService, ErrorsResolver, EmployerResolver, EmployeeResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

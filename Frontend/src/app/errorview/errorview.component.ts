@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ErrorsService } from './errorview.service';
+import { ActivatedRoute} from '@angular/router';
 
 @Component({
   templateUrl: './errorview.component.html',
@@ -9,13 +9,12 @@ export class ErrorViewComponent implements OnInit {
 
   errors!:any[];
 
-  constructor(private errorService: ErrorsService) {
+  constructor(private route: ActivatedRoute) {
     
   }
  
   ngOnInit(): void {
-    this.errorService.getErrorsAPI();
-    this.errors = this.errorService.getErrors();
+    this.errors = this.route.snapshot.data['errors'];
   }
 
 

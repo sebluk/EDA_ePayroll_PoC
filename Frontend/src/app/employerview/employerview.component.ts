@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { EmployerService } from "./employerview.service";
+import {ActivatedRoute } from '@angular/router';
 
 @Component({
   templateUrl: './employerview.component.html',
@@ -10,11 +10,10 @@ export class EmployerviewComponent implements OnInit {
 
   employers!: any[]
   
-  constructor(private employerService: EmployerService) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.employerService.getEmployersAPI();
-    this.employers = this.employerService.getEmployers();
+    this.employers = this.route.snapshot.data['employers'];
   }
 
 }

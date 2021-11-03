@@ -9,9 +9,7 @@ import { ErrorsService } from "./errorview.service";
 
 export class ErrorDetailedViewComponent implements OnInit{
     error!: any
-    constructor(private errorService: ErrorsService, private activatedRoute: ActivatedRoute){
-
-    }
+    constructor(private errorService: ErrorsService, private activatedRoute: ActivatedRoute){}
 
     ngOnInit(): void{
         this.error = this.errorService.getError(this.activatedRoute.snapshot.params['errorNumber']);
