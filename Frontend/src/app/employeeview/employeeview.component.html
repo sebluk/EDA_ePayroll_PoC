@@ -1,14 +1,12 @@
 <div class="container">
     <h4>Enter Employee SIN Number:</h4>
     <div class="input-group">
-        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-          aria-describedby="search-addon" />
-        <button type="button" class="btn btn-outline-primary"><i class="fas fa-search"></i></button>
+        <input type="search" type="number" class="form-control rounded" placeholder="Search Employees using SIN" [(ngModel)]="searchSIN" aria-label="Search" aria-describedby="search-addon" />
     </div>
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-md-6 card hoverwell" *ngFor="let employees of employees" [routerLink]="['/employeeview',employees.recordID]">
+      <div class="col-md-6 card hoverwell" *ngFor="let employees of employees | filter:searchSIN:'employeeSin'" [routerLink]="['/employeeview',employees.recordID]">
           <h3>{{employees?.employeeSin}}</h3>
           <div *ngIf="employees?.employeeName"><b>Employer BN:</b> {{employees?.employeeName}}</div>
           <div *ngIf="employees?.periodStart"><b>Period Beginning:</b> {{employees?.periodStart}}</div>

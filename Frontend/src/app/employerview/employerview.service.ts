@@ -20,7 +20,7 @@ export class EmployerService{
         'Access-Control-Allow-Origin': '*'
       };
 
-      this.http.get<any>('https://mocki.io/v1/ea7f92f3-46df-4011-9523-0b73e094009a', {headers}).subscribe({
+      this.http.get<any>('https://mocki.io/v1/0d564c37-a578-4eab-aaf9-9400f01f379e', {headers}).subscribe({
         next: data => {
           this.employers = data;
         },
@@ -29,6 +29,6 @@ export class EmployerService{
         }
       });
 
-      return this.http.get<any>('https://mocki.io/v1/ea7f92f3-46df-4011-9523-0b73e094009a', {headers});
+      return this.http.get<any>('https://mocki.io/v1/0d564c37-a578-4eab-aaf9-9400f01f379e', {headers});
     }
 }

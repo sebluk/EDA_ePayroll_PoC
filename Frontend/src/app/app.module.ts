@@ -15,6 +15,9 @@ import { HttpClientModule } from "@angular/common/http";
 import { ErrorsResolver } from './errorview/errorview-resolver.service';
 import { EmployerResolver } from './employerview/employerview-resolver.service';
 import { EmployeeResolver } from './employeeview/employeeview-resolver.service';
+import { FormsModule } from '@angular/forms';
+import { MySearchPipe } from './pipe/mySearchPipe.module';
+
 
 @NgModule({
   declarations: [
@@ -23,12 +26,14 @@ import { EmployeeResolver } from './employeeview/employeeview-resolver.service';
     ErrorViewComponent,
     EmployeeViewComponent,
     EmployerviewComponent,
-    EmployerDetailedViewComponent
+    EmployerDetailedViewComponent,
+    MySearchPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
       ErrorsService, 
@@ -36,7 +41,8 @@ import { EmployeeResolver } from './employeeview/employeeview-resolver.service';
       EmployeeService,
       ErrorsResolver, 
       EmployerResolver, 
-      EmployeeResolver],
+      EmployeeResolver,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

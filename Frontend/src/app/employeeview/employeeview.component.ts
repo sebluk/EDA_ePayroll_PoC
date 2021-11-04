@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class EmployeeViewComponent implements OnInit {
 
   employees!: any[]
-
+  searchSIN: any
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
