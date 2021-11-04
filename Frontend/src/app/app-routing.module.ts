@@ -8,6 +8,7 @@ import { EmployerDetailedViewComponent } from './employerview/employerdetailedvi
 import { ErrorsResolver } from './errorview/errorview-resolver.service';
 import { EmployerResolver } from './employerview/employerview-resolver.service';
 import { EmployeeResolver } from './employeeview/employeeview-resolver.service';
+import { EmployeeDetailedViewComponent } from './employeeview/employeedetailedview.component';
 
 const routes: Routes = [
   { 
@@ -25,6 +26,7 @@ const routes: Routes = [
     component: EmployerviewComponent,
     resolve: {employers: EmployerResolver}
   },
+  { path: 'employeeview/:recordID', component: EmployeeDetailedViewComponent},
   { path: 'errorview/:errorNumber', component: ErrorDetailedViewComponent},
   { path: 'employerview/:recordID', component: EmployerDetailedViewComponent},
 ];

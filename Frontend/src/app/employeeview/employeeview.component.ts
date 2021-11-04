@@ -13,7 +13,7 @@ export class EmployeeViewComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.employees = this.route.snapshot.data['employers'];
+    this.employees = this.route.snapshot.data['employees'];
   }
 
 }
