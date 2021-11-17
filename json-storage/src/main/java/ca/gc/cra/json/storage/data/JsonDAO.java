@@ -21,8 +21,8 @@ public class JsonDAO {
 	private static final String DB_PORT = "5432";
 	
 	private static final String BACKUP_DB_NAME = "jsondb";
-	private static final String BACKUP_USER_NAME = "userUU0";
-	private static final String BACKUP_PASSWORD = "oov4pLlVvEfTflCQ";
+	private static final String BACKUP_USER_NAME = "yuriy";
+	private static final String BACKUP_PASSWORD = "1234";
 	
 	private Connection getConnection() {
 		
