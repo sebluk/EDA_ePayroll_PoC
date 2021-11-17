@@ -8,7 +8,7 @@ import { ErrorsService } from "./errorview.service";
 })
 
 export class ErrorDetailedViewComponent implements OnInit{
-    error!: any
+    error!: any[]
     constructor(private errorService: ErrorsService, private activatedRoute: ActivatedRoute){}
 
     ngOnInit(): void{

@@ -4,13 +4,36 @@
         <input type="search" type="number" class="form-control rounded" placeholder="Search Employees using SIN" [(ngModel)]="searchSIN" aria-label="Search" aria-describedby="search-addon" />
     </div>
   </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Employee SIN</th>
+        <th>Employee Name</th>
+        <th>Employeer Name</th>
+        <th>Period Start</th>
+        <th>Period End</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employees of employees | filter:searchSIN:'employee_sin'" [routerLink]="['/employeeview',employees.id]">
+        <td>{{employees?.employee_sin}}</td>
+        <td>{{employees?.employee_name}}</td>
+        <td>{{employees?.employer_name}}</td>
+        <td>{{employees?.pay_start}}</td>
+        <td>{{employees?.pay_end}}</td>
+      </tr>
+    </tbody>
+  </table>
+
   <div class="container">
     <div class="row">
-      <div class="col-md-6 card hoverwell" *ngFor="let employees of employees | filter:searchSIN:'employeeSin'" [routerLink]="['/employeeview',employees.recordID]">
-          <h3>{{employees?.employeeSin}}</h3>
-          <div *ngIf="employees?.employeeName"><b>Employer BN:</b> {{employees?.employeeName}}</div>
-          <div *ngIf="employees?.periodStart"><b>Period Beginning:</b> {{employees?.periodStart}}</div>
-          <div *ngIf="employees?.periodEnd"><b>Period End:</b> {{employees?.periodEnd}}</div>
+      <div class="col-md-6 card hoverwell" *ngFor="let employees of employees | filter:searchSIN:'employee_sin'" [routerLink]="['/employeeview',employees.id]">
+          <h3>{{employees?.employee_sin}}</h3>
+          <div *ngIf="employees?.employee_name  != null"><b>Employee Name:</b> {{employees?.employee_name}}</div>
+          <div *ngIf="employees?.employer_name != null"><b>Employer Name:</b> {{employees?.employer_name}}</div>
+          <div *ngIf="employees?.pay_start != null"><b>Period Start:</b> {{employees?.pay_start}}</div>
+          <div *ngIf="employees?.pay_end != null"><b>Period End:</b> {{employees?.pay_end}}</div>
       </div>
     </div>
   </div>

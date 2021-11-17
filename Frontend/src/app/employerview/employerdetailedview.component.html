@@ -2,35 +2,35 @@
     <h3>Pay Details</h3>
     
     <div class="row">
-        <h4>SIN: {{employer?.employeeSin}}</h4>
-        <h4>Employee Name: {{ employer?.employeeName }}</h4>
-        <h5>Employee ID: {{ employer?.employeeID}}</h5>
+        <h4>SIN: {{employer?.employee_sin}}</h4>
+        <h4>Employee Name: {{ employer?.employee_name }}</h4>
+        <h5>Employee ID: {{ employer?.employee_id}}</h5>
     </div>
     <br>
     <br>
     <br>
     <div class="row">
         <div class="col-md-6">
-            <div>Period Start: {{employer?.periodStart}}</div>
-            <div>Period Start: {{employer?.periodEnd}}</div>
+            <div>Period Start: {{employer?.pay_start}}</div>
+            <div>Period Start: {{employer?.pay_end}}</div>
         </div>
         <div class="col-md-6">
-            <div>Pay Type: {{employer?.payType}}</div>
-            <div>Activity: {{ employer?.employeeActivity}}</div>
+            <div>Paydac: {{employer?.employer_paydac}}</div>
+            <div>Employee Status: {{ employer?.employee_status}}</div>
         </div>
     </div>
     <br>
     <br>
     <div class="row">
         <div class="col-md-6">
-            <div>Gross Pay: {{employer?.grossPay}}</div>
-            <div>Tax Deducted: {{employer?.taxDeducted}}</div>
+            <div>Gross Pay: {{employer?.gross_pay}}</div>
+            <div>Tax Deducted: {{employer?.tax_deducted}}</div>
         </div>
         <div class="col-md-6">
-            <div>CPP Pensionable Earnings: {{employer?.cppPensionEarning}}</div>
-            <div>CPP Contribution: {{ employer?.cppContribution}} </div>
-            <div>EI Insurable Earnings: {{ employer?.eiInsurableEarning}}</div>
-            <div>EI Contribution: {{employer?.eiContribution }}</div>
+            <div>CPP Pensionable Earnings: {{employer?.cpp_pension_earn}}</div>
+            <div>CPP Contribution: {{ employer?.cpp_contrib}} </div>
+            <div>EI Insurable Earnings: {{ employer?.ei_insur_earnings}}</div>
+            <div>EI Contribution: {{employer?.ei_contrib }}</div>
         </div>
     </div>
 </div>

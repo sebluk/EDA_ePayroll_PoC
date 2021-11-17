@@ -26,9 +26,9 @@ const routes: Routes = [
     component: EmployerviewComponent,
     resolve: {employers: EmployerResolver}
   },
-  { path: 'employeeview/:recordID', component: EmployeeDetailedViewComponent},
+  { path: 'employeeview/:id', component: EmployeeDetailedViewComponent},
   { path: 'errorview/:errorNumber', component: ErrorDetailedViewComponent},
-  { path: 'employerview/:recordID', component: EmployerDetailedViewComponent},
+  { path: 'employerview/:id', component: EmployerDetailedViewComponent},
 ];
 
 @NgModule({

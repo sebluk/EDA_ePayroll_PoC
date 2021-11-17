@@ -16,6 +16,6 @@ export class EmployeeDetailedViewComponent implements OnInit {
     }
 
     ngOnInit(): void{
-        this.employee = this.employeeService.getEmployeeRecord(this.activatedRoute.snapshot.params['recordID']);
+        this.employee = this.employeeService.getEmployeeRecord(this.activatedRoute.snapshot.params['id']);
     }
 }

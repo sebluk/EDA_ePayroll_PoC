@@ -9,8 +9,8 @@ export class EmployeeService{
     constructor(private http: HttpClient){}
     
 
-    getEmployeeRecord(recordID:number){
-      return this.employees.find(employees => employees.recordID == recordID);
+    getEmployeeRecord(id:number){
+      return this.employees.find(employees => employees.id == id);
     }
 
     getEmployeesAPI(){
@@ -18,7 +18,7 @@ export class EmployeeService{
         'Access-Control-Allow-Origin': '*'
       };
 
-      this.http.get<any>('https://mocki.io/v1/0d564c37-a578-4eab-aaf9-9400f01f379e', {headers}).subscribe({
+      this.http.get<any>('http://epayroll-data-db-eda-epayroll-poc.apps.ocp4.omega.dce-eir.net/epayroll/processed', {headers}).subscribe({
         next: data => {
           this.employees = data;
         },
@@ -27,6 +27,6 @@ export class EmployeeService{
         }
       });
 
-      return this.http.get<any>('https://mocki.io/v1/0d564c37-a578-4eab-aaf9-9400f01f379e', {headers});
+      return this.http.get<any>('http://epayroll-data-db-eda-epayroll-poc.apps.ocp4.omega.dce-eir.net/epayroll/processed', {headers});
     }
 }

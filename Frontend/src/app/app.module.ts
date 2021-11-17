@@ -17,6 +17,8 @@ import { EmployerResolver } from './employerview/employerview-resolver.service';
 import { EmployeeResolver } from './employeeview/employeeview-resolver.service';
 import { FormsModule } from '@angular/forms';
 import { MySearchPipe } from './pipe/mySearchPipe.module';
+import { ErrorDetailedViewComponent } from './errorview/errordetailedview.component';
+import { EmployeeDetailedViewComponent } from './employeeview/employeedetailedview.component';
 
 
 @NgModule({
@@ -25,8 +27,10 @@ import { MySearchPipe } from './pipe/mySearchPipe.module';
     NavbarComponent,
     ErrorViewComponent,
     EmployeeViewComponent,
+    EmployeeDetailedViewComponent,
     EmployerviewComponent,
     EmployerDetailedViewComponent,
+    ErrorDetailedViewComponent,
     MySearchPipe
   ],
   imports: [

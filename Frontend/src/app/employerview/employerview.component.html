@@ -4,13 +4,34 @@
       <input type="search" type="number" class="form-control rounded" placeholder="Search Employer by BN" [(ngModel)]="searchBN" aria-label="Search" aria-describedby="search-addon" />
   </div>  
 </div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Employer Name</th>
+      <th>Employer BN</th>
+      <th>Employee SIN</th>
+      <th>Period Start</th>
+      <th>Period End</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employers of employers |filter:searchBN:'bn'" [routerLink]="['/employerview',employers.id]">
+      <td>{{employers?.employer_name}}</td>
+      <td>{{employers?.bn}}</td>
+      <td>{{employers?.employee_sin}}</td>
+      <td>{{employers?.pay_start}}</td>
+      <td>{{employers?.pay_end}}</td>
+    </tr>
+  </tbody>
+</table>
 <div class="container">
   <div class="row">
-    <div class="col-md-6 card hoverwell" *ngFor="let employers of employers |filter:searchBN:'bn'" [routerLink]="['/employerview',employers.recordID]">
-        <h3>{{employers?.name}}</h3>
-        <div *ngIf="employers?.employeeSin"><b>Employer BN:</b> {{employers?.bn}}</div>
-        <div *ngIf="employers?.periodStart"><b>Period Beginning:</b> {{employers?.periodStart}}</div>
-        <div *ngIf="employers?.periodEnd"><b>Period End:</b> {{employers?.periodEnd}}</div>
+    <div class="col-md-6 card hoverwell" *ngFor="let employers of employers |filter:searchBN:'bn'" [routerLink]="['/employerview',employers.id]">
+        <h3>{{employers?.employer_name}}</h3>
+        <div *ngIf="employers?.bn != null"><b>Employer BN:</b> {{employers?.bn}}</div>
+        <div *ngIf="employers?.pay_start != null"><b>Period Start:</b> {{employers?.pay_start}}</div>
+        <div *ngIf="employers?.pay_end != null"><b>Period End:</b> {{employers?.pay_end}}</div>
     </div>
   </div>
 </div>

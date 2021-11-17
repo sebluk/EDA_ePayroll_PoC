@@ -2,35 +2,34 @@
     <h3>Pay Details</h3>
     
     <div class="row">
-        <h4>SIN: {{employee?.employeeSin}}</h4>
-        <h4>Employee Name: {{ employee?.employeeName }}</h4>
-        <h5>Employee ID: {{ employee?.employeeID}}</h5>
+        <h4>SIN: {{employee?.employee_sin}}</h4>
+        <h4>Employee Name: {{ employee?.employee_name }}</h4>
+        <h5>Employee ID: {{ employee?.employee_id}}</h5>
     </div>
     <br>
     <br>
     <br>
     <div class="row">
         <div class="col-md-6">
-            <div>Period Start: {{employee?.periodStart}}</div>
-            <div>Period Start: {{employee?.periodEnd}}</div>
+            <div>Period Start: {{employee?.pay_start}}</div>
+            <div>Period Start: {{employee?.pay_end}}</div>
         </div>
         <div class="col-md-6">
-            <div>Pay Type: {{employee?.payType}}</div>
-            <div>Activity: {{ employee?.employeeActivity}}</div>
+            <div>Employee Status: {{employee?.employee_status}}</div>
         </div>
     </div>
     <br>
     <br>
     <div class="row">
         <div class="col-md-6">
-            <div>Gross Pay: {{employee?.grossPay}}</div>
-            <div>Tax Deducted: {{employee?.taxDeducted}}</div>
+            <div>Gross Pay: {{employee?.gross_pay}}</div>
+            <div>Tax Deducted: {{employee?.tax_deducted}}</div>
         </div>
         <div class="col-md-6">
-            <div>CPP Pensionable Earnings: {{employee?.cppPensionEarning}}</div>
-            <div>CPP Contribution: {{ employee?.cppContribution}} </div>
-            <div>EI Insurable Earnings: {{ employee?.eiInsurableEarning}}</div>
-            <div>EI Contribution: {{employee?.eiContribution }}</div>
+            <div>CPP Pensionable Earnings: {{employee?.cpp_pension_earn}}</div>
+            <div>CPP Contribution: {{ employee?.cpp_contrib}} </div>
+            <div>EI Insurable Earnings: {{ employee?.ei_insur_earnings}}</div>
+            <div>EI Contribution: {{employee?.ei_contrib }}</div>
         </div>
     </div>
 </div>
