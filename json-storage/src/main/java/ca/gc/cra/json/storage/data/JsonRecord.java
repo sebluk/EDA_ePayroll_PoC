@@ -25,14 +25,6 @@ public class JsonRecord {
 
 	@Override
 	public String toString() {
-		/*
-		String jsonString = json.toString();
-		
-		if (jsonString.length() > 1) {
-			jsonString = jsonString.substring(1); //Remove front "{"
-			jsonString = "{\"id\":" + id + "," + jsonString; 
-		}
-		*/
 		return "{" + 
 				"\"id\":" + id + "," +
 				"\"json\":" + json.toString() + 

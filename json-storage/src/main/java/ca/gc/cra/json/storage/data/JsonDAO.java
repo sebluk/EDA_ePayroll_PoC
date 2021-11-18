@@ -13,8 +13,8 @@ import org.json.JSONObject;
 public class JsonDAO {
 	
 	private static final String SQL_SELECT_ALL = "SELECT * FROM records";
-	private static final String SQL_INSERT_DATA = "INSERT INTO records (data) VALUES(";
-	private static final String SQL_INSERT_DATA_END = ")";
+	private static final String SQL_INSERT_DATA = "INSERT INTO records (data) VALUES(\'";
+	private static final String SQL_INSERT_DATA_END = "\')";
 	
 	private static final String DB_TYPE = "jdbc:postgresql";
 	private static final String DB_HOST = "errorpostgresql"; //"errorpostgresql-eda-epayroll-poc.apps.ocp4.omega.dce-eir.net"
@@ -87,11 +87,12 @@ public class JsonDAO {
 		if (connection != null) {
 			try {
 				Statement statement = connection.createStatement();
-                statement.executeUpdate(
+                int rows = statement.executeUpdate(
                 		SQL_INSERT_DATA + 
                 		data.toString() + 
                 		SQL_INSERT_DATA_END);
 				
+                result = (rows == 1);
 			} catch (SQLException e) {
 				System.out.println("Failed to execute INSERT");
 				e.printStackTrace();
