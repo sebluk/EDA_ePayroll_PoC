@@ -23,7 +23,7 @@ public class EpayrollEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     @Column
-    private int bn;
+    private String bn;
     @Column
     private String employer_paydac;
     @Column
@@ -59,7 +59,7 @@ public class EpayrollEntity {
 
     }
 
-    public EpayrollEntity(int bn,String employer_paydac, String employer_name,Date pay_start, Date pay_end, String employee_status,String employee_name,int employee_sin,String employee_id,BigDecimal gross_pay,BigDecimal tax_deducted,BigDecimal cpp_contrib,BigDecimal cpp_pension_earn,BigDecimal ei_contrib,BigDecimal ei_insur_earnings ) {
+    public EpayrollEntity(String bn,String employer_paydac, String employer_name,Date pay_start, Date pay_end, String employee_status,String employee_name,int employee_sin,String employee_id,BigDecimal gross_pay,BigDecimal tax_deducted,BigDecimal cpp_contrib,BigDecimal cpp_pension_earn,BigDecimal ei_contrib,BigDecimal ei_insur_earnings ) {
         this.bn = bn;
         this.employer_paydac = employer_paydac;
         this.employer_name = employer_name;
@@ -78,11 +78,11 @@ public class EpayrollEntity {
     }
 
    
-    public int getBn() {
+    public String getBn() {
         return this.bn;
     }
 
-    public void setBn(int bn) {
+    public void setBn(String bn) {
         this.bn = bn;
     }
 

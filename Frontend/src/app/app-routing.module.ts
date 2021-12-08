@@ -11,28 +11,28 @@ import { EmployeeResolver } from './employeeview/employeeview-resolver.service';
 import { EmployeeDetailedViewComponent } from './employeeview/employeedetailedview.component';
 
 const routes: Routes = [
-  { 
-    path: 'errorview', 
+  {
+    path: 'errorview',
     component: ErrorViewComponent,
-    resolve: {errors: ErrorsResolver}
+    resolve: { errors: ErrorsResolver },
   },
-  { 
-    path: 'employeeview', 
+  {
+    path: 'employeeview',
     component: EmployeeViewComponent,
-    resolve: {employees: EmployeeResolver}
+    resolve: { employees: EmployeeResolver },
   },
-  { 
-    path: 'employerview', 
+  {
+    path: 'employerview',
     component: EmployerviewComponent,
-    resolve: {employers: EmployerResolver}
+    resolve: { employers: EmployerResolver },
   },
-  { path: 'employeeview/:id', component: EmployeeDetailedViewComponent},
-  { path: 'errorview/:errorNumber', component: ErrorDetailedViewComponent},
-  { path: 'employerview/:id', component: EmployerDetailedViewComponent},
+  { path: 'employeeview/:id', component: EmployeeDetailedViewComponent },
+  { path: 'errorview/:id', component: ErrorDetailedViewComponent },
+  { path: 'employerview/:id', component: EmployerDetailedViewComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

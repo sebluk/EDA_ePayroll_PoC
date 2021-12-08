@@ -13,8 +13,10 @@ import ca.gc.cra.json.storage.data.JsonRecord;
 @ApplicationScoped
 public class JsonService {
 
+	private JsonDAO dao = new JsonDAO();
+	
     public String getJsonRecords() {
-    	List<JsonRecord> jsonRecords = new JsonDAO().getAllJsonRecords();
+    	List<JsonRecord> jsonRecords = dao.getAllJsonRecords();
     	
     	System.out.println("Retrieved: " + jsonRecords);
     	
@@ -26,7 +28,7 @@ public class JsonService {
     	try {
     		JSONObject json = new JSONObject(data);
     		
-    		boolean saved = new JsonDAO().saveJsonRecord(json);
+    		boolean saved = dao.saveJsonRecord(json);
         	resultText = saved ? "Saved" : "Failed to save";
             
         	System.out.println(resultText + ": " + json);

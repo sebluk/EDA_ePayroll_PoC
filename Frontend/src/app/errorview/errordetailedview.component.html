@@ -1,17 +1,13 @@
 <div class="container">
-    <h3>Error Details</h3>
-    
-    <div *ngFor = "let item of error | keyvalue">
-        <h4 *ngIf = "item.key == 'errorNumber'">Error Number: {{item.value}}</h4>
-    </div>
-    <div *ngFor = "let item of error | keyvalue">
-        <h5 *ngIf = "item.key == 'description'">Error Description: {{item.value}}</h5>
-    </div>
-    
-    <br>
-    <br>
-    <br>
-    <div *ngFor="let item of error | keyvalue">
-        <div *ngIf="item.key != 'errorNumber' && item.key != 'description'">{{item.key}}: {{item.value}}</div>
-    </div>  
+  <h3>Error Details</h3>
+
+  <div class="identifier">
+    <h5>Record ID: {{ error.id }}</h5>
+    <h5>Error number: {{ error.json.errorNumber }}</h5>
+    <h5>Error description: {{ error.json.errorDescription }}</h5>
+  </div>
+  <br />
+  <div class="json">
+    <pre>{{ jsonRecord | json }}</pre>
+  </div>
 </div>

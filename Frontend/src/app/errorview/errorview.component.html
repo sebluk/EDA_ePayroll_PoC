@@ -1,8 +1,24 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-6 card hoverwell" *ngFor="let errors of errors" [routerLink]="['/errorview',errors.errorNumber]">
-            <h3>{{errors?.errorNumber}}</h3>
-            <div *ngIf="errors?.description"><b>Description:</b> {{errors?.description}}</div>
-        </div>
-    </div>
+  <br />
+</div>
+
+<div id="myTable">
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th recordId>Record id</th>
+        <th errNum>Error number</th>
+        <th errDes>Error description</th>
+        <th data>Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let error of errors" [routerLink]="['/errorview', error.id]">
+        <td>{{ error?.id }}</td>
+        <td>{{ error?.json?.errorNumber }}</td>
+        <td>{{ error?.json?.errorDescription }}</td>
+        <td>{{ error?.jsonString }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

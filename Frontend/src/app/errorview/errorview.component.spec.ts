@@ -8,9 +8,8 @@ describe('ErrorViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ErrorViewComponent ]
-    })
-    .compileComponents();
+      declarations: [ErrorViewComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

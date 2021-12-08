@@ -1,12 +1,22 @@
 <div class="container">
-    <h4>Enter Employee SIN Number:</h4>
-    <div class="input-group">
-        <input type="search" type="number" class="form-control rounded" placeholder="Search Employees using SIN" [(ngModel)]="searchSIN" aria-label="Search" aria-describedby="search-addon" />
-    </div>
+  <h4>Enter Employee SIN Number:</h4>
+  <div class="input-group">
+    <input
+      type="search"
+      type="number"
+      class="form-control rounded"
+      placeholder="Search Employees using SIN"
+      [(ngModel)]="searchSIN"
+      aria-label="Search"
+      aria-describedby="search-addon"
+    />
   </div>
+</div>
 
-  <table>
-    <thead>
+<br />
+<div id="myTable">
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
       <tr>
         <th>Employee SIN</th>
         <th>Employee Name</th>
@@ -16,17 +26,21 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let employees of employees | filter:searchSIN:'employee_sin'" [routerLink]="['/employeeview',employees.id]">
-        <td>{{employees?.employee_sin}}</td>
-        <td>{{employees?.employee_name}}</td>
-        <td>{{employees?.employer_name}}</td>
-        <td>{{employees?.pay_start}}</td>
-        <td>{{employees?.pay_end}}</td>
+      <tr
+        *ngFor="let employees of employees | filter: searchSIN:'employee_sin'"
+        [routerLink]="['/employeeview', employees.id]"
+      >
+        <td>{{ employees?.employee_sin }}</td>
+        <td>{{ employees?.employee_name }}</td>
+        <td>{{ employees?.employer_name }}</td>
+        <td>{{ employees?.pay_start }}</td>
+        <td>{{ employees?.pay_end }}</td>
       </tr>
     </tbody>
   </table>
+</div>
 
-  <div class="container">
+<!-- <div class="container">
     <div class="row">
       <div class="col-md-6 card hoverwell" *ngFor="let employees of employees | filter:searchSIN:'employee_sin'" [routerLink]="['/employeeview',employees.id]">
           <h3>{{employees?.employee_sin}}</h3>
@@ -36,5 +50,4 @@
           <div *ngIf="employees?.pay_end != null"><b>Period End:</b> {{employees?.pay_end}}</div>
       </div>
     </div>
-  </div>
-  
+  </div> -->

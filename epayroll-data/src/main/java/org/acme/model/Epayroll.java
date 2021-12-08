@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Epayroll {
 
-    private int bn;
+    private String bn;
     private String employer_paydac;
     private String employer_name; //extract from bn
     private LocalDate pay_start; // start time of pay
@@ -26,7 +26,7 @@ public class Epayroll {
 
     }
 
-    public Epayroll(int bn,String employer_paydac, String employer_name,LocalDate pay_start, LocalDate pay_end, String employee_status,String employee_name,int employee_sin,String employee_id,double gross_pay,double tax_deducted,double cpp_contrib,double cpp_pension_earn,double ei_contrib,double ei_insur_earnings ) {
+    public Epayroll(String bn,String employer_paydac, String employer_name,LocalDate pay_start, LocalDate pay_end, String employee_status,String employee_name,int employee_sin,String employee_id,double gross_pay,double tax_deducted,double cpp_contrib,double cpp_pension_earn,double ei_contrib,double ei_insur_earnings ) {
         this.bn = bn;
         this.employer_paydac = employer_paydac;
         this.employer_name = employer_name;
@@ -46,11 +46,11 @@ public class Epayroll {
 
 
 
-    public int getBn() {
+    public String getBn() {
         return this.bn;
     }
 
-    public void setBn(int bn) {
+    public void setBn(String bn) {
         this.bn = bn;
     }
 

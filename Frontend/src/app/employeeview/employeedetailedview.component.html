@@ -1,35 +1,58 @@
 <div class="container">
-    <h3>Pay Details</h3>
-    
-    <div class="row">
-        <h4>SIN: {{employee?.employee_sin}}</h4>
-        <h4>Employee Name: {{ employee?.employee_name }}</h4>
-        <h5>Employee ID: {{ employee?.employee_id}}</h5>
-    </div>
-    <br>
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-md-6">
-            <div>Period Start: {{employee?.pay_start}}</div>
-            <div>Period Start: {{employee?.pay_end}}</div>
-        </div>
-        <div class="col-md-6">
-            <div>Employee Status: {{employee?.employee_status}}</div>
-        </div>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-md-6">
-            <div>Gross Pay: {{employee?.gross_pay}}</div>
-            <div>Tax Deducted: {{employee?.tax_deducted}}</div>
-        </div>
-        <div class="col-md-6">
-            <div>CPP Pensionable Earnings: {{employee?.cpp_pension_earn}}</div>
-            <div>CPP Contribution: {{ employee?.cpp_contrib}} </div>
-            <div>EI Insurable Earnings: {{ employee?.ei_insur_earnings}}</div>
-            <div>EI Contribution: {{employee?.ei_contrib }}</div>
-        </div>
-    </div>
+  <h3>Pay Details</h3>
+
+  <div class="row">
+    <h4>SIN: {{ employee?.employee_sin }}</h4>
+    <h4>Employee Name: {{ employee?.employee_name }}</h4>
+    <h5>Employee ID: {{ employee?.employee_id }}</h5>
+  </div>
+  <br />
+  <div class="row">
+    <table class="table table-striped table-bordered">
+      <thead class="table-muted">
+        <tr>
+          <th>Name</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Employee status</td>
+          <td>{{ employee?.employee_status }}</td>
+        </tr>
+        <tr>
+          <td>Period start</td>
+          <td>{{ employee?.pay_start }}</td>
+        </tr>
+        <tr>
+          <td>Period end</td>
+          <td>{{ employee?.pay_end }}</td>
+        </tr>
+        <tr>
+          <td>Gross pay</td>
+          <td>{{ employee?.gross_pay }}</td>
+        </tr>
+        <tr>
+          <td>Tax deducted</td>
+          <td>{{ employee?.tax_deducted }}</td>
+        </tr>
+        <tr>
+          <td>CPP pensionable earnings</td>
+          <td>{{ employee?.cpp_pension_earn }}</td>
+        </tr>
+        <tr>
+          <td>CPP contributions</td>
+          <td>{{ employee?.cpp_contrib }}</td>
+        </tr>
+        <tr>
+          <td>EI insurable earnings</td>
+          <td>{{ employee?.ei_insur_earnings }}</td>
+        </tr>
+        <tr>
+          <td>EI contributions</td>
+          <td>{{ employee?.ei_contrib }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

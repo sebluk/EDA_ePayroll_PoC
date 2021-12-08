@@ -1,0 +1,8 @@
+pre {
+  font-size: medium;
+}
+
+.json {
+  background: transparent;
+  box-shadow: 10px 12px 0.5rem rgba(0, 0, 0, 0.5);
+}

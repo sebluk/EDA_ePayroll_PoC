@@ -1,26 +1,38 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
-export class ErrorsService{
+export class ErrorsService {
+  errors!: any[];
 
-  errors!:any[];
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient){}
-    
-  getError(errorNumber:number){
-    return this.errors.find(errors => errors.errorNumber == errorNumber);
+  getError(id: number) {
+    return this.errors.find((errors) => errors.id == id);
   }
 
-  getErrorsAPI(){
+  getErrorsAPI() {
     const headers = {
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*',
     };
-    this.http.get<any>('http://epayroll-data-eda-epayroll-poc.apps.ocp4.omega.dce-eir.net/errors', {headers}).subscribe(data => {
-      this.errors = data;
-    });
-    return this.http.get<any>('http://epayroll-data-eda-epayroll-poc.apps.ocp4.omega.dce-eir.net/errors', {headers});
-    
+
+    this.http
+      .get<any>(
+        'http://error-eda-epayroll-poc.apps.ocp4.omega.dce-eir.net/json',
+        { headers }
+      )
+      .subscribe({
+        next: (data) => {
+          this.errors = data;
+        },
+        error: (error) => {
+          console.error('Error here: ', error);
+        },
+      });
+
+    return this.http.get<any>(
+      'http://error-eda-epayroll-poc.apps.ocp4.omega.dce-eir.net/json',
+      { headers }
+    );
   }
-  
 }

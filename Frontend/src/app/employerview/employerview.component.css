@@ -1,0 +1,32 @@
+#myTable {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+table {
+  border: 1px solid black;
+}
+
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+  transition: 0.3s;
+  background-color: #cde1f3;
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  text-align: left;
+  cursor: pointer;
+}
+
+#divNumberOne {
+  border-left: 0;
+}
+
+.table-hover tbody tr,
+.table-hover tbody {
+  background-image: linear-gradient(120deg, #fdfbfb 100%, #ebedee 100%);
+}

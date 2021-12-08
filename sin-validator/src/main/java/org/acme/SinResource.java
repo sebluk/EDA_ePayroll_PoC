@@ -3,7 +3,8 @@ package main.java.org.acme;
 import java.util.Set;
 import java.util.stream.Collectors;
 import org.json.*;  
-
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javax.inject.Inject;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -34,7 +35,7 @@ public class SinResource {
     }
 
     // @Path("/manual-validation")
-    // @POST
+    // @Post
     // @Produces(MediaType.APPLICATION_JSON)
     // @Consumes(MediaType.APPLICATION_JSON)
     // public Result tryMeManualValidation(Book book) {
@@ -54,30 +55,59 @@ public class SinResource {
     //     return new Result("Book is valid! It was validated by end point method validation.");
     // }
 
+    // @Path("/service-method-validation")
+    // @POST
+    // @Produces(MediaType.APPLICATION_JSON)
+    // @Consumes(MediaType.APPLICATION_JSON)
+    // public String tryMeServiceMethodValidation(String obj) {
+    //     JSONObject json = new JSONObject(obj); 
+    //     System.out.println("received and converted to json: "+ json);
+
+    //     int sin = json.getInt("employee_sin");  
+    //     System.out.println(sin);
+    //     try {
+    //         boolean isSinVlaid = sinService.isValid(sin);
+    //         if(isSinVlaid){
+    //             //JSONObject validSin = new JSONObject(obj); 
+    //             json.put("isSinValid", new Boolean(true));
+    //             json.put("response_code", 200);
+    //         }
+    //         else{
+    //             json.put("isSinValid", new Boolean(false));
+    //             json.put("response_code", 400);    
+    //         }
+    //         return json.toString();
+                      
+    //     } catch (ConstraintViolationException e) {
+    //         return "error found";
+    //     }
+    // }
     @Path("/service-method-validation")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public String tryMeServiceMethodValidation(String obj) {
-        JSONObject json = new JSONObject(obj); 
-        System.out.println("received and converted to json: "+ json);
-
-        int sin = json.getInt("employee_sin");  
-        System.out.println(sin);
-        try {
+        try{
+            JSONObject json = new JSONObject(obj);
+            int sin = json.getInt("employee_sin"); 
             boolean isSinVlaid = sinService.isValid(sin);
             if(isSinVlaid){
-                return "Sin number is valid! It was validated by sin validator service.";
+                json.put("response_code", 200);
             }
             else{
-                return "sin number is invalid";
+                //json.put("isSinValid", new Boolean(false));
+                // json.put("data",obj);
+                json.put("errorDescription","Received data contains a sin number with digits more than or less than 9");
+                json.put("response_code",101);
             }
-            
-           
-        } catch (ConstraintViolationException e) {
-            return "error found";
+            return json.toString();
+        } catch (JSONException e){
+            JSONObject notJson = new JSONObject();
+            notJson.put("errorDescription","Received data is not json parseable");
+            notJson.put("response_code",400);
+            // notJson.put("data",obj);
+            return notJson.toString();
         }
-    }
 
-
+}
 }

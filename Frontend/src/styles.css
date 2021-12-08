@@ -1,14 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
-body{
-    background-color: #e7e7e7;
-    width: 100%;
+body {
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+  width: 100%;
+  background-attachment: fixed;
+}
+
+html {
+  min-height: 100%;
 }
 
 .hoverwell:hover {
-    background-color: #dadada;
-    cursor: pointer;
+  background-color: #dadada;
+  cursor: pointer;
 }
-  
+
 .container {
-padding-top: 10px;
+  padding-top: 10px;
 }

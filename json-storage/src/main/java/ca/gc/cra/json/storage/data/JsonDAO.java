@@ -24,56 +24,69 @@ public class JsonDAO {
 	private static final String BACKUP_USER_NAME = "yuriy";
 	private static final String BACKUP_PASSWORD = "1234";
 	
+	private Connection connection;
+	
 	private Connection getConnection() {
-		
-		String dbName = System.getenv("DB_NAME");
-		String user = System.getenv("DB_USER");
-		String password = System.getenv("DB_PASSWORD");
-    
-		if (dbName == null) {
-			dbName = BACKUP_DB_NAME;
-			user = BACKUP_USER_NAME;
-			password = BACKUP_PASSWORD;
+		if (connection == null) {
+
+			String dbName = System.getenv("DB_NAME");
+			String user = System.getenv("DB_USER");
+			String password = System.getenv("DB_PASSWORD");
+
+			if (dbName == null) {
+				dbName = BACKUP_DB_NAME;
+				user = BACKUP_USER_NAME;
+				password = BACKUP_PASSWORD;
+			}
+
+			String url = DB_TYPE + "://" + DB_HOST + ":" + DB_PORT + "/" + dbName;
+
+			System.out.println("Connecting: " + url + " using: " + user);
+
+			try {
+				connection = DriverManager.getConnection(url, user, password);
+			} catch (SQLException e) {
+				System.out.println("Failed to connect to DB");
+				e.printStackTrace();
+			}
 		}
 		
-		String url = DB_TYPE + "://" + DB_HOST + ":" + DB_PORT + "/" + dbName;
-		
-		System.out.println("Connecting: " + url + " using: " + user);
-		
-		Connection connection = null;
-    
-		try {
-			connection = DriverManager.getConnection(url, user, password);
-		} catch (SQLException e) {
-			System.out.println("Failed to connect to DB");
-			e.printStackTrace();
-		}
-    
 		return connection;
+	}
+	
+	private void closeConnection() {
+		if (connection != null) {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				System.out.println("Failed to close connection to DB");
+				e.printStackTrace();
+			}
+			
+			connection = null;
+		}
 	}
 	
 	public List<JsonRecord> getAllJsonRecords() {
 		List<JsonRecord> result = new ArrayList<>();
 
-		Connection connection = getConnection();
+		try {
+			Statement statement = getConnection().createStatement();
+			ResultSet rs = statement.executeQuery(SQL_SELECT_ALL);
 
-		if (connection != null) {
-			try {
-				Statement statement = connection.createStatement();
-				ResultSet rs = statement.executeQuery(SQL_SELECT_ALL);
+			while (rs.next()) {
+				JsonRecord record = new JsonRecord();
+				record.setId(rs.getLong(1));
+				record.setJson(new JSONObject(rs.getString(2)));
 
-				while (rs.next()) {
-					JsonRecord record = new JsonRecord();
-					record.setId(rs.getLong(1));
-					record.setJson(new JSONObject(rs.getString(2)));
-
-					result.add(record);
-				}
-
-			} catch (SQLException e) {
-				System.out.println("Failed to execute SELECT");
-				e.printStackTrace();
+				result.add(record);
 			}
+
+			closeConnection();
+		} catch (SQLException e) {
+			System.out.println("Failed to execute SELECT");
+			e.printStackTrace();
+			closeConnection();
 		}
 
 		return result;
@@ -82,23 +95,22 @@ public class JsonDAO {
 	public boolean saveJsonRecord(JSONObject data) {
 		boolean result = false;
 		
-		Connection connection = getConnection();
+		try {
+			Statement statement = getConnection().createStatement();
+			int rows = statement.executeUpdate(
+					SQL_INSERT_DATA + 
+					data.toString() +
+					SQL_INSERT_DATA_END);
 
-		if (connection != null) {
-			try {
-				Statement statement = connection.createStatement();
-                int rows = statement.executeUpdate(
-                		SQL_INSERT_DATA + 
-                		data.toString() + 
-                		SQL_INSERT_DATA_END);
-				
-                result = (rows == 1);
-			} catch (SQLException e) {
-				System.out.println("Failed to execute INSERT");
-				e.printStackTrace();
-			}
+			result = (rows == 1);
+			
+			getConnection();
+		} catch (SQLException e) {
+			System.out.println("Failed to execute INSERT");
+			e.printStackTrace();
+			getConnection();
 		}
-		
+	
 		return result;
 	}
 }

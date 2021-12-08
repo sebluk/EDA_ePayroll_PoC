@@ -1,32 +1,38 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
-export class EmployerService{
+export class EmployerService {
+  employers!: any[];
 
-    employers!: any[];
+  constructor(private http: HttpClient) {}
 
-    constructor(private http: HttpClient){}
-    
+  getEmployerRecord(id: number) {
+    return this.employers.find((employers) => employers.id == id);
+  }
 
-    getEmployerRecord(id:number){
-      return this.employers.find(employers => employers.id == id);
-    }
+  getEmployersAPI() {
+    const headers = {
+      'Access-Control-Allow-Origin': '*',
+    };
 
-    getEmployersAPI(){
-      const headers = {
-        'Access-Control-Allow-Origin': '*'
-      };
-
-      this.http.get<any>('http://epayroll-data-db-eda-epayroll-poc.apps.ocp4.omega.dce-eir.net/epayroll/processed', {headers}).subscribe({
-        next: data => {
+    this.http
+      .get<any>(
+        'http://epayroll-data-db-eda-epayroll-poc.apps.ocp4.omega.dce-eir.net/epayroll/processed',
+        { headers }
+      )
+      .subscribe({
+        next: (data) => {
           this.employers = data;
         },
-        error: error => {
-          console.error("Error here: ", error);
-        }
+        error: (error) => {
+          console.error('Error here: ', error);
+        },
       });
 
-      return this.http.get<any>('http://epayroll-data-db-eda-epayroll-poc.apps.ocp4.omega.dce-eir.net/epayroll/processed', {headers});
-    }
+    return this.http.get<any>(
+      'http://epayroll-data-db-eda-epayroll-poc.apps.ocp4.omega.dce-eir.net/epayroll/processed',
+      { headers }
+    );
+  }
 }
