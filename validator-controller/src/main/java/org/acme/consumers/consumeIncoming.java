@@ -80,13 +80,13 @@ public class consumeIncoming {
                     validEmitter.send(bnValidatorResJson.toString());
                     System.out.println("Message sent from if staement of response 200 inside bn conditional" );
                 }else{
-                    bnValidatorResJson.put("errorNumber",resCode);
+                    bnValidatorResJson.put("errorNumber",resCodeBn);
                     bnValidatorResJson.remove("response_code");
                     errorEmitter.send(bnValidatorResJson.toString());
                     System.out.println("Message sent from else staement inside bn conditional" );
                 }   
             }else{
-                sinValidatorResJson.put("errorNumber",resCodeBn);
+                sinValidatorResJson.put("errorNumber",resCode);
                 sinValidatorResJson.remove("response_code");
                 errorEmitter.send(sinValidatorResJson.toString());
                 System.out.println("Message sent from else staement inside sin conditional" );
