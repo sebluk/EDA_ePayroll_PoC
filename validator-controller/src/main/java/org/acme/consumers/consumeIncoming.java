@@ -86,7 +86,7 @@ public class consumeIncoming {
                     System.out.println("Message sent from else staement inside bn conditional" );
                 }   
             }else{
-                sinValidatorResJson.put("errorNumber",resCode);
+                sinValidatorResJson.put("errorNumber",resCodeBn);
                 sinValidatorResJson.remove("response_code");
                 errorEmitter.send(sinValidatorResJson.toString());
                 System.out.println("Message sent from else staement inside sin conditional" );
