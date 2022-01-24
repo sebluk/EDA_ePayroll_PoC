@@ -1,4 +1,4 @@
-package org.acme.model;
+package ca.gc.cra.rcsc.epayroll.model;
 import java.time.LocalDate;
 import java.util.Date;
 import java.math.BigDecimal;
