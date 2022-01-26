@@ -1,4 +1,4 @@
-package ca.gc.cra.rcsc.epayroll.model;
+package ca.gc.cra.rcsc.eda_epayroll_poc;
 // package org.acme.producer;
 
 import java.util.Arrays;
@@ -12,7 +12,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import ca.gc.cra.rcsc.epayroll.model.*;
 import javax.ws.rs.Consumes;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;

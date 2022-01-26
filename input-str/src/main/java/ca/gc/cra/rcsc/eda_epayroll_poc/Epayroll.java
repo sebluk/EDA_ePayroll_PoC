@@ -1,4 +1,4 @@
-package ca.gc.cra.rcsc.epayroll.model;
+package ca.gc.cra.rcsc.eda_epayroll_poc;
 import java.time.LocalDate;
 import java.util.Date;
 import java.math.BigDecimal;
