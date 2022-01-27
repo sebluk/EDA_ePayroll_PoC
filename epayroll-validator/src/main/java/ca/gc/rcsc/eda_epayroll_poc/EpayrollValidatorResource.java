@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.HashSet;
 import java.util.stream.Collectors;
 
-
+import ca.gc.rcsc.eda_epayroll_poc.Epayroll;
 import org.json.*;  
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -25,8 +25,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-// import main.java.org.acme.VaidatedResult;
-// import main.java.org.acme.SinService;
 
 @Path("/epayrollValidation")
 public class EpayrollValidatorResource {
